@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalConfVisions | Link in Bio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;500&display=swap');
+        
+        :root {
+            --neon-blue: #08f7fe;
+            --neon-pink: #fe53bb;
+            --neon-green: #09fbd3;
+            --dark-bg: #0f0f1a;
+            --darker-bg: #080811;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            perspective: 1000px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .header {
+            position: relative;
+            margin-bottom: 3rem;
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .heartbeat-strip {
+            background: black;
+            padding: 1.5rem;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(8, 247, 254, 0.3);
+            margin-bottom: 3rem;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        .heartbeat-strip::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink), var(--neon-green));
+            z-index: -1;
+            border-radius: 10px;
+            animation: borderGlow 3s linear infinite;
+        }
+        
+        .digitalconf-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            background: linear-gradient(90deg, white, #e0e0e0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            letter-spacing: 2px;
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+        
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .link-item {
+            background: rgba(15, 15, 26, 0.7);
+            border: 1px solid rgba(8, 247, 254, 0.2);
+            border-radius: 8px;
+            padding: 1.2rem;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .link-item:hover {
+            transform: translateY(-5px) translateZ(20px);
+            box-shadow: 0 8px 25px rgba(8, 247, 254, 0.4);
+            border-color: var(--neon-blue);
+        }
+        
+        .link-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(8, 247, 254, 0.1), transparent);
+            transition: 0.5s;
+        }
+        
+        .link-item:hover::before {
+            left: 100%;
+        }
+        
+        .icon {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        .footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Animations */
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.02); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes textGlow {
+            from { text-shadow: 0 0 5px white, 0 0 10px white; }
+            to { text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px var(--neon-blue); }
+        }
+        
+        @keyframes borderGlow {
+            0% { filter: blur(5px); opacity: 0.7; }
+            50% { filter: blur(7px); opacity: 1; }
+            100% { filter: blur(5px); opacity: 0.7; }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px) rotateX(5deg); }
+            50% { transform: translateY(-15px) rotateX(5deg); }
+            100% { transform: translateY(0px) rotateX(5deg); }
+        }
+        
+        /* 3D Effects */
+        .link-item:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(8, 247, 254, 0.1) 50%, transparent 100%);
+            transform: translateZ(-1px);
+            border-radius: 8px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .digitalconf-text {
+                font-size: 1.4rem;
+            }
+            
+            .link-item {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="heartbeat-strip">
+                <div class="digitalconf-text">digitalconfvisions</div>
+            </div>
+        </div>
+        
+        <div class="links">
+            <div class="link-item" onclick="window.location.href='#latest-projects'">
+                <i class="fas fa-laptop-code icon"></i>Latest Projects
+            </div>
+            <div class="link-item" onclick="window.location.href='https://jagtappritam7.gumroad.com/?_gl=1*s4mx6q*_ga*MTYxMjk0ODk4NC4xNzQ4MjU2ODI0*_ga_6LJN6D94N6*czE3NDk1NzQ4NDUkbzM1JGcxJHQxNzQ5NTc0ODY2JGozOSRsMCRoMA..'">
+                <i class="fab fa-gumroad icon"></i>Gumroad Resources
+            </div>
+            <div class="link-item" onclick="window.location.href='https://youtube.com/@prityaa379?si=rwxra4GUzKuLKdS_'">
+                <i class="fab fa-youtube icon"></i>YouTube Channel
+            </div>
+            <div class="link-item" onclick="window.location.href='#next-zoom-meeting'">
+                <i class="fas fa-video icon"></i>Next Zoom Meeting
+            </div>
+            <div class="link-item" onclick="window.location.href='#contact-me'">
+                <i class="fas fa-envelope icon"></i>Contact Me
+            </div>
+        </div>
+        
+        <div class="footer">
+            © 2025 DigitalConfVisions | Next Gen Web Development
+        </div>
+    </div>
+    
+    <script>
+        // Add 3D tilt effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const container = document.querySelector('.container');
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+            container.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+        
+        // Reset position when mouse leaves
+        document.querySelector('.container').addEventListener('mouseleave', function() {
+            this.style.transform = 'rotateY(0deg) rotateX(0deg)';
+        });
+        
+        // Smooth hover effect for all links
+        document.querySelectorAll('.link-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) translateZ(20px)';
+                this.style.boxShadow = '0 8px 25px rgba(8, 247, 254, 0.4)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.3)';
+            });
+        });
+    </script>
+</body>
+</html>
